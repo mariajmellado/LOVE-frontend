@@ -235,7 +235,7 @@ export const m1m3DetailedStateToStyle = {
   'PROFILE HARDPOINT CORRECTION STATE': 'ok',
 };
 
-export const m1mActuatorILCStateMap = {
+export const m1m3ActuatorILCStateMap = {
   1: 'ON',
   0: 'OFF',
 };
@@ -251,6 +251,16 @@ export const m1m3HardpointActuatorMotionStateMap = {
 export const m1m3ILCStateToStyle = {
   ON: 'ok',
   OFF: 'warning',
+};
+
+export const m1m3tsEnabledStateMap = {
+  1: 'ENABLED',
+  0: 'DISABLED',
+};
+
+export const m1m3tsEnabledStateToStyle = {
+  ENABLED: 'ok',
+  DISABLED: 'warning',
 };
 
 // Dome and mount view
