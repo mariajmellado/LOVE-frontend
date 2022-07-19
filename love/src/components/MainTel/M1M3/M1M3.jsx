@@ -8,7 +8,7 @@ import {
   m1m3DetailedStateMap,
   m1m3DetailedStateToStyle,
   m1m3HardpointActuatorMotionStateMap,
-  m1mActuatorILCStateMap,
+  m1m3ActuatorILCStateMap,
   M1M3HardpointPositions,
 } from 'Config';
 import Select from 'components/GeneralPurpose/Select/Select';
@@ -246,7 +246,7 @@ export default class M1M3 extends Component {
     };
 
     hardpoint.ilcStatus = {
-      name: m1mActuatorILCStateMap[hardpoint.ilcStatus],
+      name: m1m3ActuatorILCStateMap[hardpoint.ilcStatus],
       class: M1M3.statesIlc[hardpoint.ilcStatus].class,
     };
     hardpoint.motionStatus = {
