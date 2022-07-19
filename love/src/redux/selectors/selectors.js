@@ -189,12 +189,19 @@ export const getM1M3State = (state) => {
   };
 };
 
-// M1M3TS Selector
+// M1M3TS
 export const getM1M3TSState = (state) => {
-  const subscriptions = ['event-MTM1M3TS-0-summaryState'];
+  const subscriptions = [
+    'event-MTM1M3TS-0-summaryState',
+    'event-MTM1M3TS-0-enabledILC',
+    'event-MTM1M3TS-0-powerStatus',
+  ];
   const m1m3tsData = getStreamsData(state, subscriptions);
   return {
     summaryState: m1m3tsData['event-MTM1M3TS-0-summaryState']?.[0].summaryState?.value ?? 0,
+    enabled: m1m3tsData['event-MTM1M3TS-0-enabledILC']?.[0].enabled?.value ?? false,
+    fanHeaters: m1m3tsData['event-MTM1M3TS-0-powerStatus']?.[0].fanCoilsHeatersOn?.value ?? false,
+    coolantPump: m1m3tsData['event-MTM1M3TS-0-powerStatus']?.[0].coolantPumpOn?.value ?? false,
   };
 };
 
