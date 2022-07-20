@@ -238,19 +238,43 @@ export const getM1M3ActuatorForces = (state) => {
   };
 };
 
-// M1M3TS
+// M1M3TS selectors
 export const getM1M3TSState = (state) => {
   const subscriptions = [
     'event-MTM1M3TS-0-summaryState',
-    'event-MTM1M3TS-0-enabledILC',
     'event-MTM1M3TS-0-powerStatus',
   ];
   const m1m3tsData = getStreamsData(state, subscriptions);
   return {
-    summaryState: m1m3tsData['event-MTM1M3TS-0-summaryState']?.[0].summaryState?.value ?? 0,
-    enabled: m1m3tsData['event-MTM1M3TS-0-enabledILC']?.[0].enabled?.value ?? true,
+    // enabled: m1m3tsData['event-MTM1M3TS-0-enabledILC']?.[0].enabled?.value ?? [],
+    summaryState: m1m3tsData['event-MTM1M3TS-0-summaryState']?.[0].summaryState?.value ?? 3,
     fanHeaters: m1m3tsData['event-MTM1M3TS-0-powerStatus']?.[0].fanCoilsHeatersOn?.value ?? false,
     coolantPump: m1m3tsData['event-MTM1M3TS-0-powerStatus']?.[0].coolantPumpOn?.value ?? true,
+  };
+};
+
+export const getM1M3TSThermalState = (state) => {
+  const subscriptions = [
+    // 'event-MTM1M3TS-0-enabledILC',
+    'event-MTM1M3TS-0-thermalData',
+    'event-MTM1M3TS-0-thermalSettings',
+  ];
+  const m1m3tsData = getStreamsData(state, subscriptions);
+  return {
+    enabledFCU: m1m3tsData['event-MTM1M3TS-0-thermalSettings']?.[0].enabledFCU?.value ?? Array.from({length: 96}, i => false),
+    absoluteTemperature : m1m3tsData['event-MTM1M3TS-0-thermalData']?.[0].absoluteTemperature ?.value ?? Array.from({length: 96}, i => 1234),
+    differentialTemperature : m1m3tsData['event-MTM1M3TS-0-thermalData']?.[0].differentialTemperature ?.value ?? Array.from({length: 96}, i => 246),
+    fanRPM : m1m3tsData['event-MTM1M3TS-0-thermalData']?.[0].fanRPM ?.value ?? Array.from({length: 96}, i => 2350),
+  };
+};
+
+export const getM1M3TSTemperatureState = (state) => {
+  const subscriptions = [
+    'event-MTM1M3TS-0-appliedSetpoint',
+  ];
+  const m1m3tsData = getStreamsData(state, subscriptions);
+  return {
+    setpoint: m1m3tsData['event-MTM1M3TS-0-appliedSetpoint']?.[0].setpoint?.value ?? 18.34,
   };
 };
 

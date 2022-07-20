@@ -810,9 +810,9 @@ export const parseTimestamp = (timestamp) => {
  * Returns value if it is integer or float fixed to 5 decimals
  * @param {number} value, number to convert
  */
-export const defaultNumberFormatter = (value) => {
+export const defaultNumberFormatter = (value, precision=4) => {
   if (Number.isNaN(value)) return value;
-  return Number.isInteger(value) ? value : Number.parseFloat(value).toFixed(4);
+  return Number.isInteger(value) ? value : Number.parseFloat(value).toFixed(precision);
 };
 
 /**

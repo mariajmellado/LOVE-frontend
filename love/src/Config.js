@@ -263,6 +263,22 @@ export const m1m3tsEnabledStateToStyle = {
   DISABLED: 'warning',
 };
 
+export const m1m3tsSummaryStates = {
+  1: 'DISABLED STATE',
+  2: 'ENABLED STATE',
+  3: 'FAULT STATE',
+  4: 'OFFLINE STATE',
+  5: 'STANDBY STATE',
+}
+
+export const m1m3tsSummaryStateToStyle = {
+  'DISABLED STATE': 'warning',
+  'ENABLED STATE': 'ok',
+  'FAULT STATE': 'warning',
+  'OFFLINE STATE': 'warning',
+  'STANDBY STATE': 'warning',
+};
+
 // Dome and mount view
 export const domeAzimuthStateMap = {
   1: 'NOT MOVING',
