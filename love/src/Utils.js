@@ -983,10 +983,6 @@ export function degrees(radians) {
   return (radians * 180) / Math.PI;
 }
 
-export function fixedFloat(x, points = 3) {
-  return Number.parseFloat(x).toFixed(points);
-}
-
 /**
  * Function used to calculate the left duration from startDate + shift to current time.
  * If difference is negative the return value is 0
