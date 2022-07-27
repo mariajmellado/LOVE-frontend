@@ -1348,3 +1348,26 @@ export const MTMountLimits = {
     max: 270,
   },
 };
+
+export const MessagesWarningM1M3ThermalSystem = {
+  majorFault: 'Thermal fan unit warning major Fault.',
+  minorFault: 'Thermal fan unit warning minor Fault.',
+  faultOverride: 'Thermal fan unit warning fault Override.',
+  refResistorError: 'Thermal fan unit Ref Resistor Error.',
+  rtdError: 'Thermal fan unit RTD Error.',
+  breakerHeater1Error: 'Thermal fan unit Breaker Heater 1 Error.',
+  breakerFan2Error: 'Thermal fan unit Breaker Fan 2 Error.',
+  uniqueIdCRCError: 'Thermal fan unit warning unique Id CRC Error.',
+  applicationTypeMismatch: 'Thermal fan unit warning application Type Mismatch.',
+  applicationMissing: 'Thermal fan unit warning application Missing.',
+  applicationCRCMismatch: 'Thermal fan unit warning application CRC Mismatch.',
+  oneWireMissing: 'Thermal fan unit warning oneWire Missing.',
+  oneWire1Mismatch: 'Thermal fan unit warning oneWire1 Mismatch.',
+  oneWire2Mismatch: 'Thermal fan unit warning oneWire2 Mismatch.',
+  watchdogReset: 'Thermal fan unit warning watchdog Reset.',
+  brownOut: 'Thermal fan unit warning brownout.',
+  eventTrapReset: 'Thermal fan unit warning event Trap Reset.',
+  ssrPowerFault: 'Thermal fan unit warning SSR Power Fault.',
+  auxPowerFault: 'Thermal fan unit warning aux Power Fault.',
+  ilcFault: 'Force actuator warning ILC Fault.',
+}
