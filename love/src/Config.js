@@ -264,19 +264,19 @@ export const m1m3tsEnabledStateToStyle = {
 };
 
 export const m1m3tsSummaryStates = {
-  1: 'DISABLED STATE',
-  2: 'ENABLED STATE',
-  3: 'FAULT STATE',
-  4: 'OFFLINE STATE',
-  5: 'STANDBY STATE',
+  1: 'DISABLED',
+  2: 'ENABLED',
+  3: 'FAULT',
+  4: 'OFFLINE',
+  5: 'STANDBY',
 }
 
 export const m1m3tsSummaryStateToStyle = {
-  'DISABLED STATE': 'warning',
-  'ENABLED STATE': 'ok',
-  'FAULT STATE': 'warning',
-  'OFFLINE STATE': 'warning',
-  'STANDBY STATE': 'warning',
+  'DISABLED': 'warning',
+  'ENABLED': 'ok',
+  'FAULT': 'warning',
+  'OFFLINE': 'warning',
+  'STANDBY': 'warning',
 };
 
 // Dome and mount view
