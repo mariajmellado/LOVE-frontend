@@ -128,6 +128,9 @@ export default class M1M3TS extends Component {
             coolantPump={coolantPump}
           />
         </div>
+        <div className={styles.separatorContainer}>
+          <div className={styles.separator}></div>
+        </div>
 
         <div className={styles.menuContainer}>
           <Menu 
