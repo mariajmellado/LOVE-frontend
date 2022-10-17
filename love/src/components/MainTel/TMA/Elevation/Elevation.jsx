@@ -62,7 +62,7 @@ export default class Elevation extends Component {
           {this.getMount()}
         </g>
 
-        {equivalentElevationDemand !== equivalentElevationActual ?? this.getDemand(equivalentElevationDemand)}
+        {equivalentElevationDemand !== equivalentElevationActual && this.getDemand(equivalentElevationDemand)}
         {this.getBaseMount()}
       </svg>
     );
@@ -79,7 +79,7 @@ export default class Elevation extends Component {
           strokeDasharray: 6,
           fill: 'none',
           transition: 'transform 1.5s linear 0s',
-          transform: `rotateZ(${equivalentElevationDemand}deg)`,
+          transform: `rotateZ(${90 - equivalentElevationDemand}deg)`,
           transformOrigin: `50% 50%`,
         }}
       />
