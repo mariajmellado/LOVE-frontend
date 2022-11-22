@@ -254,6 +254,21 @@ export const m1m3ILCStateToStyle = {
   OFF: 'warning',
 };
 
+// MT Camera
+export const mtCameraRaftDetailedStateMap = {
+  1: 'GOOD',
+  2: 'REGULAR',
+  3: 'BAD',
+  0: 'UNKNOWN',
+};
+
+export const mtCameraRaftDetailedStateToStyle = {
+  GOOD: 'ok',
+  REGULAR: 'warning',
+  BAD: 'alert',
+  UNKNOWN: 'invalid',
+};
+
 // Dome and mount view
 export const domeAzimuthStateMap = {
   1: 'NOT MOVING',
