@@ -344,6 +344,16 @@ export const mainIndex = {
       },
     },
   },
+  MTCameraSummary: {
+    component: require('../MainTel/MTCameraSummary/MTCameraSummary.container').default,
+    schema: {
+      ...require('../MainTel/MTCameraSummary/MTCameraSummary.container').schema,
+      props: {
+        ...defaultSchemaProps,
+        ...require('../MainTel/MTCameraSummary/MTCameraSummary.container').schema.props,
+      },
+    },
+  },
 };
 
 export const authlistIndex = {
