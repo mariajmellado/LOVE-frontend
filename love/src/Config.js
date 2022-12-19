@@ -368,7 +368,7 @@ export const instrumentStateMap = {
 export const ATPneumaticsLimits = {
   cellLoad: {
     min: 3.83,
-    max: 117.80,
+    max: 117.8,
   },
   pressure: {
     min: 47160.14,
@@ -1528,4 +1528,107 @@ export const signalBypassIndexes = {
   tmaEtpbs: [25, 8],
   failedWatchdogOrLossCommunication: [26, 0],
   interlock: [26, 1],
+};
+
+// MTCamera
+export const mtcameraSummaryStateToStyle = {
+  UNKNOWN: 'undefined',
+  DISABLED: 'disabled',
+  ENABLED: 'enabled',
+  FAULT: 'fault',
+  OFFLINE: 'offline',
+  STANDBY: 'standby',
+};
+
+// TODO: Validate this with @MiaRoseElbo
+export const mtcameraCcsCommandStateMap = {
+  0: IDLE,
+  1: BUSY,
+};
+
+export const mtcameaCcsCommandStateToStyle = {
+  IDLE: 'undefined',
+  BUSY: 'ok',
+};
+
+export const mtcameraCalibrationDetailedStateMap = {
+  0: DISABLED,
+  1: ENABLED,
+  2: INTEGRATING,
+};
+
+export const mtcameraCalibrationDetailedStateToStyle = {
+  DISABLED: 'undefined',
+  ENABLED: 'ok',
+  INTEGRATING: 'ok',
+};
+
+export const mtcameraOffLineDetailedStateMap = {
+  0: 'OFFLINE_AVAILABLE',
+  1: 'OFFLINE_PUBLISH_ONLY',
+};
+
+export const mtcameraOffLineDetailedStateToStyle = {
+  OFFLINE_AVAILABLE: 'undefined',
+  OFFLINE_PUBLISH_ONLY: 'ok',
+};
+
+export const mtcameraImageReadlinessDetailedStateMap = {
+  0: READY,
+  1: 'NOT_READY',
+  2: 'GETTING_READY',
+};
+
+export const mtcameraImageReadlinessDetailedStateToStyle = {
+  READY: 'ok',
+  NOT_READY: 'undefined',
+  GETTING_READY: 'ok',
+};
+
+export const mtcameraShutterDetailedStateMap = {
+  0: CLOSED,
+  1: OPEN,
+  2: CLOSING,
+  3: OPENING,
+};
+
+export const mtcameraShutterDetailedStateToStyle = {
+  CLOSED: 'undefined',
+  OPEN: 'ok',
+  CLOSING: 'ok',
+  OPENING: 'ok',
+};
+
+export const mtcameraFilterChangerDetailedStateMap = {
+  0: UNLOADING,
+  1: LOADING,
+  2: LOADED,
+  3: UNLOADED,
+  4: ROTATING,
+};
+
+export const mtcameraFilterChangerDetailedStateToStyle = {
+  UNLOADING: 'undefined',
+  LOADING: 'ok',
+  LOADED: 'ok',
+  UNLOADED: 'undefined',
+  ROTATING: 'ok',
+};
+
+export const mtCameraRaftDetailedStateMap2 = {
+  0: 'NEEDS_CLEAR',
+  1: CLEARING,
+  2: INTEGRATING,
+  3: 'READING_OUT',
+  4: QUIESCENT,
+  5: DISCARDING,
+};
+
+export const mtCameraRaftDetailedStateToSTyle2 = {
+  NEEDS_CLEAR: 'warning',
+  CLEARING: 'ok',
+  INTEGRATING: 'ok',
+  READING_OUT: 'warning',
+  QUIESCENT: 'undefined',
+  DISCARDING: 'undefined',
 };
