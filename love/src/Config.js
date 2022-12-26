@@ -113,6 +113,24 @@ export const defaultCSCList = [
   { name: 'WeatherStation', salindex: 1 },
 ];
 
+export const summaryStateStateMap = {
+  0: 'UNKNOWN',
+  1: 'DISABLED',
+  2: 'ENABLED',
+  3: 'FAULT',
+  4: 'OFFLINE',
+  5: 'STANDBY',
+};
+
+export const summaryStateStateToStyle = {
+  UNKNOWN: 'invalid',
+  DISABLED: 'invalid',
+  ENABLED: 'ok',
+  FAULT: 'alert',
+  OFFLINE: 'alert',
+  STANDBY: 'warning',
+};
+
 export const getCameraStatusStyle = (status) => {
   if (!status) return '';
   if (status.toLowerCase() === 'integrating') return 'running';
@@ -1531,16 +1549,17 @@ export const signalBypassIndexes = {
 };
 
 // MTCamera
-export const mtcameraSummaryStateToStyle = {
-  UNKNOWN: 'undefined',
-  DISABLED: 'disabled',
-  ENABLED: 'enabled',
-  FAULT: 'fault',
-  OFFLINE: 'offline',
-  STANDBY: 'standby',
+// TODO: Validate this with @MiaRoseElbo
+export const mtcameraRaftTempControlState = {
+  0: 'NON ACTIVE',
+  1: 'ACTIVE',
 };
 
-// TODO: Validate this with @MiaRoseElbo
+export const mtcameraRaftTempControlStateToStyle = {
+  'NON ACTIVE': 'warning',
+  ACTIVE: 'ok',
+};
+
 export const mtcameraCcsCommandStateMap = {
   0: 'IDLE',
   1: 'BUSY',
