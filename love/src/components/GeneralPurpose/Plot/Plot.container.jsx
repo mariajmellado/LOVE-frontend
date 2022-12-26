@@ -127,8 +127,12 @@ class PlotContainer extends React.Component {
 
   componentDidMount() {
     this.props.subscribeToStreams();
-    ManagerInterface.getEFDClients().then(({ instances }) => this.setState({ efdClients: instances }));
+
     const { defaultEfdInstance } = this.props.efdConfigFile ?? {};
+
+    if (defaultEfdInstance || this.props.controls) {
+      ManagerInterface.getEFDClients().then(({ instances }) => this.setState({ efdClients: instances }));
+    }
     if (defaultEfdInstance) {
       this.setState({ selectedEfdClient: defaultEfdInstance }, () => {
         this.setHistoricalData(Moment().subtract(3600, 'seconds'), 60);
