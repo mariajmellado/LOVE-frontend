@@ -16,23 +16,20 @@
 .ok {
   color: var(--status-ok-color);
   background: var(--status-ok-dimmed-color-3);
-
 }
 
 .warning {
   color: var(--status-warning-color);
   background: var(--status-warning-dimmed-color-3);
-
 }
 
 .alert {
   color: var(--status-alert-color);
   background: var(--status-alert-dimmed-color-3);
-
 }
 
-.invalid {
+.invalid,
+.unknown {
   color: var(--secondary-font-color);
   background: var(--second-tertiary-background-color);
-
 }
