@@ -264,7 +264,7 @@ export default class WeatherStation extends Component {
             <div className={styles.summaryVariable}>
               <div className={styles.summaryLabel}>Temperature</div>
               <div className={styles.iconWrapper}>
-                <TemperatureIcon className={styles.icon}/>
+                <TemperatureIcon className={styles.icon} />
               </div>
               <div className={styles.summaryValue}>
                 {currentTemperature !== undefined ? `${currentTemperature}ºC` : '-'}
@@ -273,21 +273,21 @@ export default class WeatherStation extends Component {
             <div className={styles.summaryVariable}>
               <div className={styles.summaryLabel}>Humidity</div>
               <div className={styles.iconWrapper}>
-                <HumidityIcon className={styles.icon}/>
+                <HumidityIcon className={styles.icon} />
               </div>
               <div className={styles.summaryValue}>{currentHumidity !== undefined ? `${currentHumidity}%` : '-'}</div>
             </div>
             <div className={styles.summaryVariable}>
               <div className={styles.summaryLabel}>Pressure</div>
               <div className={styles.iconWrapper}>
-                <PressureIcon className={styles.icon}/>
+                <PressureIcon className={styles.icon} />
               </div>
               <div className={styles.summaryValue}>{currentPressure ? `${currentPressure} pa` : '-'}</div>
             </div>
             <div className={styles.summaryVariable}>
               <div className={styles.summaryLabel}>Wind speed</div>
               <div className={styles.iconWrapper}>
-                <WindIcon className={styles.icon}/>
+                <WindIcon className={styles.icon} />
               </div>
               <div className={styles.summaryValue}>
                 {currentWindSpeed !== undefined
@@ -315,7 +315,8 @@ export default class WeatherStation extends Component {
                 {this.state.isLive && (
                   <span>
                     Displaying last{' '}
-                    <strong>{this.state.timeWindow != 1 ? this.state.timeWindow + ' minutes' : 'minute'}</strong> of data
+                    <strong>{this.state.timeWindow != 1 ? this.state.timeWindow + ' minutes' : 'minute'}</strong> of
+                    data
                   </span>
                 )}
                 {!this.state.isLive && (
@@ -348,7 +349,7 @@ export default class WeatherStation extends Component {
             <PlotContainer
               timeSeriesControlsProps={timeSeriesControlsProps}
               inputs={this.temperaturePlot}
-              containerNode={this.temperaturePlotRef}
+              containerNode={this.temperaturePlotRef?.current}
               xAxisTitle="Time"
               yAxisTitle="Temperature"
               legendPosition="bottom"
@@ -361,7 +362,7 @@ export default class WeatherStation extends Component {
             <PlotContainer
               timeSeriesControlsProps={timeSeriesControlsProps}
               inputs={this.humidityPlot}
-              containerNode={this.humidityPlotRef}
+              containerNode={this.humidityPlotRef?.current}
               xAxisTitle="Time"
               yAxisTitle="Relative humidity"
               legendPosition="bottom"
@@ -375,7 +376,7 @@ export default class WeatherStation extends Component {
             <PlotContainer
               timeSeriesControlsProps={timeSeriesControlsProps}
               inputs={this.precipitationPlot}
-              containerNode={this.precipitationPlotRef}
+              containerNode={this.precipitationPlotRef?.current}
               xAxisTitle="Time"
               yAxisTitle="Precipitation"
               legendPosition="bottom"
@@ -389,7 +390,7 @@ export default class WeatherStation extends Component {
             <PlotContainer
               timeSeriesControlsProps={timeSeriesControlsProps}
               inputs={this.snowDepthPlot}
-              containerNode={this.snowDepthPlotRef}
+              containerNode={this.snowDepthPlotRef?.current}
               xAxisTitle="Time"
               yAxisTitle="Snow depth"
               legendPosition="bottom"
@@ -403,7 +404,7 @@ export default class WeatherStation extends Component {
             <PlotContainer
               timeSeriesControlsProps={timeSeriesControlsProps}
               inputs={this.solarPlot}
-              containerNode={this.solarPlotRef}
+              containerNode={this.solarPlotRef?.current}
               xAxisTitle="Time"
               yAxisTitle="Solar radiation"
               legendPosition="bottom"
@@ -417,7 +418,7 @@ export default class WeatherStation extends Component {
             <PlotContainer
               timeSeriesControlsProps={timeSeriesControlsProps}
               inputs={this.pressurePlot}
-              containerNode={this.pressurePlotRef}
+              containerNode={this.pressurePlotRef?.current}
               xAxisTitle="Time"
               yAxisTitle="Air pressure"
               legendPosition="bottom"

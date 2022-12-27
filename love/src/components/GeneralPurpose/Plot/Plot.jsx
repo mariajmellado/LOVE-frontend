@@ -84,13 +84,17 @@ const Plot = ({
       const resizeObserver = new ResizeObserver((entries) => {
         const container = entries[0];
 
+        // Include labels width in calculations
+        const containerWidth =
+          legendPosition === 'right' ? container.contentRect.width - 150 : container.contentRect.width;
+        // Include controls in height calculations
         const containerHeight =
           controls && timeSeriesControlRef?.current?.containerRef?.current?.clientHeight
-            ? container.contentRect.height - timeSeriesControlRef.current.containerRef.current.clientHeight
+            ? container.contentRect.height - (timeSeriesControlRef.current.containerRef.current.clientHeight + 10)
             : container.contentRect.height;
 
         setContainerSize({
-          width: container.contentRect.width,
+          width: containerWidth,
           height: containerHeight,
         });
       });
@@ -126,8 +130,8 @@ const Plot = ({
           units={units}
           marksStyles={completedMarksStyles}
           temporalXAxis
-          width={legendPosition === 'right' ? containerSize.width - 150 : containerSize.width} // from the .autogrid grid-template-columns
-          height={legendPosition === 'bottom' ? containerSize.height - 25 : containerSize.height}
+          width={containerSize.width}
+          height={containerSize.height}
           className={styles.plot}
         />
         <VegaLegend listData={legend} marksStyles={completedMarksStyles} />
@@ -137,6 +141,11 @@ const Plot = ({
 };
 
 Plot.propTypes = {
+  /** Parent DOM reference
+   * Needed to calculate plot's width and height to make it responsive
+   * Accesed from React.createRef().current
+   */
+  containerNode: PropTypes.object,
   /** Data to be used to build a legend */
   legend: PropTypes.arrayOf(
     PropTypes.shape({
