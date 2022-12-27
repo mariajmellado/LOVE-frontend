@@ -7,6 +7,7 @@
   width: 100%;
   display: grid;
   grid-template-rows: 2em minmax(1em, 1fr);
+  grid-template-columns: minmax(0, 1fr) /* BUG: reference https://css-tricks.com/preventing-a-grid-blowout/ */;
   box-sizing: border-box;
   overflow: auto;
 }
