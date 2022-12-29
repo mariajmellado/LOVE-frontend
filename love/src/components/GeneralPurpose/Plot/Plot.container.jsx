@@ -4,6 +4,7 @@ import { addGroup, requestGroupRemoval } from 'redux/actions/ws';
 import { getStreamsData, getEfdConfig, getTaiToUtc } from 'redux/selectors';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
+import isEqual from 'lodash/isEqual';
 import ManagerInterface, { parseTimestamp, parsePlotInputs, parseCommanderData } from 'Utils';
 import Plot from './Plot';
 
@@ -144,6 +145,17 @@ class PlotContainer extends React.Component {
     this.props.unsubscribeToStreams();
   }
 
+  compareEqualInputs = (prevInputs, newInputs) => {
+    return (
+      prevInputs.category === newInputs.category &&
+      prevInputs.csc === newInputs.csc &&
+      prevInputs.salindex === newInputs.salindex &&
+      prevInputs.topic === newInputs.topic &&
+      prevInputs.item === newInputs.item &&
+      prevInputs.type === newInputs.type
+    );
+  };
+
   componentDidUpdate(prevProps, prevState) {
     const { timeSeriesControlsProps, inputs, streams } = this.props;
     const { data } = this.state;
@@ -151,7 +163,7 @@ class PlotContainer extends React.Component {
       this.setState({ ...timeSeriesControlsProps });
     }
 
-    if (prevProps.inputs != inputs) {
+    if (!this.compareEqualInputs(prevProps.inputs, inputs)) {
       const data = {};
       for (const key of Object.keys(inputs)) {
         data[key] = [];
@@ -159,7 +171,7 @@ class PlotContainer extends React.Component {
       this.setState({ data });
     }
 
-    if (prevProps.inputs != inputs || prevProps.streams != streams) {
+    if (!this.compareEqualInputs(prevProps.inputs, inputs) || !isEqual(prevProps.streams, streams)) {
       const newData = {};
       for (const [inputName, inputConfig] of Object.entries(inputs)) {
         const { category, csc, salindex, topic, item, accessor } = inputConfig;

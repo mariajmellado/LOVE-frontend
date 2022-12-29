@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { VegaLite } from 'react-vega';
+import isEqual from 'lodash/isEqual';
 import styles from './VegaTimeSeriesPlot.module.css';
 import PropTypes from 'prop-types';
 
@@ -375,6 +376,10 @@ class VegaTimeseriesPlot extends Component {
     }
 
     if (this.props.units?.x !== prevProps.units?.x || this.props.units?.y !== prevProps.units?.y) {
+      this.updateSpec();
+    }
+
+    if (!isEqual(prevProps.layers, this.props.layers)) {
       this.updateSpec();
     }
   };
