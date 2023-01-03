@@ -273,6 +273,7 @@ export default class Dome extends Component {
                   xAxisTitle="Time"
                   yAxisTitle="Azimuth"
                   timeSeriesControlsProps={timeSeriesControlsProps}
+                  maxHeight={250}
                 />
               </div>
             </div>
@@ -288,6 +289,7 @@ export default class Dome extends Component {
                   xAxisTitle="Time"
                   yAxisTitle="Elevation"
                   timeSeriesControlsProps={timeSeriesControlsProps}
+                  maxHeight={250}
                 />
               </div>
             </div>
